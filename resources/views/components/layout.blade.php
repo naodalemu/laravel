@@ -13,5 +13,7 @@
         <a href="/contact">Contact</a>
     </nav>
 
+    {{ $slot }}
+
 </body>
 </html>
