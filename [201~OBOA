@@ -1,0 +1,11 @@
+[90m= [39m[34;4mApp\Models\Admin[39;24m {#5070
+    [34mhonor[39m: "[32mDr.[39m",
+    [34mfirst_name[39m: "[32mAlemu[39m",
+    [34mlast_name[39m: "[32mGonfa[39m",
+    [34memail[39m: "[32mag@gmail.com[39m",
+    [34mpassword[39m: "[32m12345678[39m",
+    [34mupdated_at[39m: "[32m2024-09-09 17:29:39[39m",
+    [34mcreated_at[39m: "[32m2024-09-09 17:29:39[39m",
+    [34mid[39m: [35m2[39m,
+  }
+

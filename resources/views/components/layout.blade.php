@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>{{ strip_tags($heading) }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -21,12 +21,10 @@
                         </div>
                         <div class="hidden md:block">
                             <div class="ml-10 flex items-baseline space-x-4">
-                                <a href="/" 
-                                    class="rounded-md {{ request()->is("/") ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white" }} px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
-                                <a href="/jobs"
-                                    class="rounded-md {{ request()->is("jobs") ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white" }} px-3 py-2 text-sm font-medium">Jobs</a>
-                                <a href="/contact"
-                                    class="rounded-md {{ request()->is("contact") ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white" }} px-3 py-2 text-sm font-medium">Contact</a>
+                                <x-nav-link href="/" active="{{ request()->is('/') }}" type="a">Home</x-nav-link>
+                                <x-nav-link href="/jobs" active="{{ request()->is('jobs') }}" type="button">Jobs</x-nav-link>
+                                <x-nav-link href="/contact" active="{{ request()->is('contact') }}" type="a">Contact</x-nav-link>
+                                <x-nav-link href="/users" active="{{ request()->is('users') }}" type="a">Users</x-nav-link>
                             </div>
                         </div>
                     </div>
@@ -89,6 +87,7 @@
                     <x-nav-link href="/" active="{{ request()->is('/') }}" type="a">Home</x-nav-link>
                     <x-nav-link href="/jobs" active="{{ request()->is('jobs') }}" type="button">Jobs</x-nav-link>
                     <x-nav-link href="/contact" active="{{ request()->is('contact') }}" type="a">Contact</x-nav-link>
+                    <x-nav-link href="/users" active="{{ request()->is('users') }}" type="a">Users</x-nav-link>
                 </div>
                 <div class="border-t border-gray-700 pb-3 pt-4">
                     <div class="flex items-center px-5">

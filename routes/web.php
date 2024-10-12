@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Arr;
+use App\Models\Job;
+use App\Models\User;
 
 Route::get('/', function () {
     return view('home');
@@ -9,51 +10,24 @@ Route::get('/', function () {
 
 Route::get('/jobs', function () {
     return view('jobs', [
-        'jobs' => [
-            [
-                'id' => 1,
-                'title' => 'Dorector',
-                'salary' => '50000'
-            ],
-            [
-                'id' => 2,
-                'title' => 'Programmer',
-                'salary' => '20000'
-            ],
-            [
-                'id' => 3,
-                'title' => 'Teacher',
-                'salary' => '40000'
-            ]
-        ]
+        'jobs' => Job::all()
     ]);
 });
 
 Route::get('/jobs/{id}', function ($id) {
-    $jobs = [
-        [
-            'id' => 1,
-            'title' => 'Dorector',
-            'salary' => '50000'
-        ],
-        [
-            'id' => 2,
-            'title' => 'Programmer',
-            'salary' => '20000'
-        ],
-        [
-            'id' => 3,
-            'title' => 'Teacher',
-            'salary' => '40000'
-        ]
-    ];
-    
-    $job = Arr::first($jobs, fn($job) => $job['id'] == $id );
-    
-    return view('job', ['job' => $job]);
-
+    return view('job', ['job' => Job::find($id)]);
 });
 
 Route::get('/contact', function () {
     return view("contact");
+});
+
+Route::get('/users', function () {
+    return view("users", [
+        'users' => User::all()
+    ]);
+});
+
+Route::get('/users/{id}', function($id) {
+    return view('user', ['user' => User::find($id)]);
 });
